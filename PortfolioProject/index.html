@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Francisco Ferrerós | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2a2e37;
+            color: #fff;
+        }
+
+        header {
+            background-color: #2a2e37;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        header hr {
+            border: none;
+            height: 1px;
+            background-color: #fff;
+            opacity: 0.5;
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-bottom: 0;
+        }
+        
+        .header-bar {
+            color: #fff;
+            padding: 5px 20px;
+            padding-bottom: 0px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        
+        .header-bar h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: normal;
+            padding: 10px 20px;
+        }
+        
+        nav {
+            display: inline-block;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: normal;
+            padding: 10px;
+            transition: font-weight 0.2s, color 0.2s;
+            display: inline-block;
+        }
+
+        nav a:hover {
+            font-weight: bold;
+            transform: scale(1.1);
+        }
+
+        nav a.active {
+            color: #00baba;
+            font-weight: normal;
+        }
+
+        nav a.active:hover {
+            font-weight: bold;
+            transform: scale(1.1);
+        }
+
+        .main-container {
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .overview {
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            margin-left: 12%;
+            margin-right: 12%;
+            margin-bottom: 80px;
+        }
+
+        .profile-card {
+            border-radius: 20px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            position: relative;
+            border: 5px solid #00e4d4;
+            border-top-left-radius: 140px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 140px;
+            border-bottom-left-radius: 0px;
+        }
+        
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #00e4d4;
+        }
+
+        .profile-image img {
+            object-fit: cover;
+            object-position: center center;
+            min-height: 100%;
+        }
+
+        .profile-card h2 {
+            margin: 10px 0;
+            font-size: 22px;
+            color: #fff;
+        }
+
+        .info {
+            text-align: left;
+            color: #bdbdbd;
+        }
+
+        .info p {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .info i {
+            color: #00e4d4;
+            margin-right: 10px;
+        }
+
+        .skills {
+            margin-bottom: 20px;
+        }
+
+        .skills span {
+            display: inline-block;
+            background-color: #00e4d4;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 12px;
+            margin: 5px;
+            font-size: 12px;
+        }
+
+        .download-btn {
+            background-color: #fff;
+            color: #1e202b;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            width: 160px;
+        }
+
+        .download-btn i {
+            margin-left: 8px;
+        }
+
+        .download-btn:hover {
+            background-color: #00e4d4;
+            color: #fff;
+        }
+
+        .presentation {
+            margin-bottom: 40px;
+            font-weight: normal;
+            text-align: left;
+            margin-left: 90px;
+            margin-right: 20px;
+        }
+
+        .presentation h2 {
+            font-size: 46px;
+            font-weight: normal;
+            color: #fff;
+        }
+
+        .presentation p {
+            font-size: 18px;
+            font-weight: normal;
+            color: #bdbdbd;
+        }
+
+        .data {
+            background-color: #1b1e23;
+            border-radius: 40px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .data-field {
+            width: 130px;
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .data-field p {
+            text-align: left;
+        }
+
+        /* Side-scrolling images section */
+        .projects-gallery {
+            margin-bottom: 20px;
+        }
+
+        /* Carousel container */
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 600px; /* Fixed height */
+            overflow: hidden;
+        }
+
+        /* Image container */
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Each image */
+        .carousel-images img {
+            background-color: #1b1e23;
+            min-width: 100%;
+            object-fit:cover; /* Crop the top/bottom of the image if necessary */
+            object-position: center center; /* Center the image vertically */
+        }
+
+        /* Navigation buttons */
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            display: none; /* Hidden by default, shown on hover */
+            z-index: 10;
+        }
+
+        /* Left button */
+        .carousel-button.left {
+            left: 10px;
+        }
+
+        /* Right button */
+        .carousel-button.right {
+            right: 10px;
+        }
+
+        /* Show buttons when hovering over carousel */
+        .carousel:hover .carousel-button {
+            display: block;
+        }
+
+        /* Skill Icons */
+        .skills {
+            margin-top: 50px;
+        }
+
+        .skills h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: normal;
+            color: #a3f5f4;
+        }
+
+        .skills hr {
+            border: none;
+            height: 1px;
+            background-color: #fff;
+            opacity: 0.5;
+            margin: 0px;
+        }
+
+        .skills-icons {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .skills-icons img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+
+        .skills-icons img:hover {
+            filter: grayscale(0%);
+        }
+
+        footer {
+            background-color: #1b1e23;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Menu Bar -->
+    <header>
+        <section class="header-bar">
+            <h1><span style="color: #98faec">&lt;C/&gt;</span> FranciscoFerrerós</h1>
+            <nav>
+                <a href="index.html"class="active">Overview</a>
+                <a href="works.html">Works</a>
+                <a href="resume.html">Resume</a>
+            </nav>
+        </section>
+
+        <hr>
+
+    </header>
+    
+
+    <div class="main-container">
+        <!-- Quick Overview Section -->
+        <h1 style="font-weight: normal; font-size: 80px; color: #a3f5f4; margin-bottom: 40px; margin-top: 0px;">Developer</h1>
+        <div class="overview">
+            <div class="profile-card">
+                <!-- Profile Image -->
+                <img src="images/profile_pictures/Pfp_Close.jpg" alt="Profile Image" class="profile-image">
+        
+                <!-- Name and Title -->
+                <h2>Francisco<br><span style="font-weight: normal; font-size: 12px; color: #bdbdbd;">Junior Game Developer</span></h2>
+        
+                <!-- Contact Info -->
+                <div class="info">
+                    <p><i class="fa fa-envelope"></i> francisco.ferrerospg@gmail.com</p>
+                    <p><i class="fa fa-map-marker"></i> Barcelona, Spain</p>
+                    <p><i class="fa fa-briefcase"></i> Part-time / Freelancer</p>
+                    <p><i class="fa fa-globe"></i> www.github.com/kikofp02</p>
+
+                        <!-- Skills -->
+                    <div class="skills">
+                        <span>C++</span>
+                        <span>C#</span>
+                        <span>3D Modeling</span>
+                    </div>
+            
+                    <!-- Download CV Button -->
+                    <button class="download-btn">
+                        Download CV
+                        <i class="fa fa-download"></i>
+                    </button>
+                </div>
+            </div>
+    
+            <div class="presentation">
+                <p style="margin-bottom: 0px;">&lt;h1&gt;</p>
+                <h2 style="margin-top: 0px; margin-bottom: 0px;">Hey<br>I'm <span style="color: #a3f5f4;">Francisco</span>,<br>a Junior Game Developer</h2>
+                <p style="margin-top: 0px;">&lt;h1/&gt;</p>
+                <p style="margin-bottom: 0px;">&lt;p&gt;</p>
+                <p style="margin-top: 0px; margin-bottom: 0px;">Hello, I'm a passionate game developer with knowledge in game programing and 3D art, eager to start my journey on this industry.</p>
+                <p style="margin-top: 0px;">&lt;p/&gt;</p>
+            </div>
+
+            <div class="data">
+                <div class="data-field">
+                    <h1>4</h1>
+                    <p style="margin-left: 15px;">Programing Lenguages</p>
+                </div>
+                <div class="data-field">
+                    <h1>8</h1>
+                    <p style="margin-left: 15px;">Development Tools</p>
+                </div>
+                <div class="data-field">
+                    <h1>3</h1>
+                    <p style="margin-left: 15px;">Years of experience</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Projects Image Gallery -->
+    <section class="projects-gallery">
+        <div class="carousel">
+            <!-- Left button -->
+            <button class="carousel-button left" onclick="prevSlide()">&#10094;</button>
+    
+            <!-- Image container -->
+            <div class="carousel-images" id="carousel-images">
+                <img src="images/overview_projects/Project_AlienNemesis.png" alt="AlienNemesis">
+                <img src="images/overview_projects/Project_MyAnimeRank.jpg" alt="MyAnimeRank">
+                <img src="images/overview_projects/Project_Environment_3D.jpg" alt="Environment_3D">
+                <img src="images/overview_projects/Project_Tetris.jpg" alt="Tetris">
+                <img src="images/overview_projects/Project_Pokemon_3D.jpg" alt="Pokemon_3D">
+                <!-- Add more images as needed -->
+            </div>
+    
+            <!-- Right button -->
+            <button class="carousel-button right" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </section>
+    
+    <div class="main-container">
+
+        <!-- Skills Section with Icons -->
+        <section class="skills">
+            <h2>Skills</h2>
+            <hr>
+            <p style="color: #bdbdbd; margin-bottom: 60px;">I'm striving to never stop learning and improving</p>
+            <div class="skills-icons">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" title="C++">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" title="C#">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" alt="Flutter" title="Flutter">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/json/json-original.svg" alt="Json" title="Json">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" title="Git">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" title="GitHub">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unrealengine/unrealengine-original.svg" alt="Unreal Engine" title="Unreal Engine">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity" title="Unity">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-plain.svg" alt="Visual Studio" title="Visual Studio">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="Visual Studio Code" title="VS Code">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-original.svg" alt="Trello" title="Trello">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opengl/opengl-original.svg" alt="Opengl" title="Opengl">
+
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maya/maya-original.svg" alt="Autodesk Maya" title="Autodesk Maya">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg" alt="Photoshop" title="Photoshop">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" title="HTML5">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" title="Python">
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Francisco Ferrerós | All Rights Reserved</p>
+    </footer>
+
+</body>
+
+<script>
+    let currentIndex = 0;
+    const images = document.querySelectorAll('.carousel-images img');
+    const totalImages = images.length;
+
+    // Automatically transition images every X seconds (e.g., 3 seconds)
+    let interval = setInterval(nextSlide, 3000);
+
+    function showSlide(index) {
+        const carouselImages = document.getElementById('carousel-images');
+        carouselImages.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalImages;
+        showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+        showSlide(currentIndex);
+    }
+
+    // Pause auto-sliding when hovering over the carousel
+    document.querySelector('.carousel').addEventListener('mouseover', function() {
+        clearInterval(interval);
+    });
+
+    // Resume auto-sliding when not hovering over the carousel
+    document.querySelector('.carousel').addEventListener('mouseout', function() {
+        interval = setInterval(nextSlide, 3000);
+    });
+</script>
+
+</html>
